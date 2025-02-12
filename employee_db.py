@@ -20,7 +20,7 @@ class EmployeeDB(MongoDBConnection):
         return self.collection.find({"$in":kalite_derecesi})
 
     def yasina_ve_kalitesine_gore_calisan_bulma(self,kalite_derecesi, yas):
-        return self.collection.find({'qualification':kalite_derecesi, 'age':{"$lt":yas}})
+        return self.collection.find({'qualification':kalite_derecesi, 'age':{"$gt":yas}})
     
     def sorgulara_gore_calisan_gosterme(self, sorgu):
         return self.collection.find({"$or":sorgu})
